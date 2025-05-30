@@ -66,6 +66,64 @@ footer {
   background: rgba(0, 0, 0, 0.5);
   padding: 10px 0;
 }
+   .btn {
+  background-color: white !important;
+  color: black !important;
+  font-weight: bold;
+  border: 2px solid #000;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2196f3 !important;  /* Blue background */
+  color: white !important;               /* White text */
+  border-color: #2196f3 !important;
+  transform: scale(1.02);                /* Slight grow effect */
+}
+#flightsList div:hover {
+  background-color: rgba(33, 150, 243, 0.7); /* Blue tint */
+  color: #fff;
+  cursor: default;
+}
+footer:hover {
+  color: #4fc3f7;
+  cursor: pointer;
+  text-shadow: 0 0 10px #4fc3f7;
+}
+   .fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.btn:hover {
+  animation: pulse 0.4s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+#ticketSection.fade-in {
+  animation: zoomIn 0.5s ease-in-out;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.highlight-message {
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #4caf50; }
+  to { text-shadow: 0 0 20px #4caf50; }
+}
+
 
 
     #flightsList {
@@ -130,7 +188,7 @@ footer {
     </div>
 
     <!-- Dashboard -->
-    <div id="dashboardSection" class="card hidden text-start">
+    <div id="dashboardSection" class="card hidden fade-in">
       <h4 class="text-center mb-3">Choose Your Destination</h4>
       <button class="btn btn-outline-success w-100 my-2" onclick="openBooking(true)">1⟫ Reserve A Ticket To Travel In India</button>
       <button class="btn btn-outline-success w-100 my-2" onclick="openBooking(false)">2⟫ Reserve A Ticket To Travel Through Out The World</button>
@@ -139,7 +197,7 @@ footer {
     </div>
 
     <!-- Booking -->
-    <div id="mainSection" class="card hidden">
+    <div id="mainSection" class="card hidden pulse">
       <h4>Book Your Flight</h4>
       <input type="text" id="name" class="form-control my-2" placeholder="Your Name" />
       <input type="text" id="aadhar" class="form-control my-2" placeholder="Aadhar Number" />
@@ -153,8 +211,9 @@ footer {
     </div>
 
     <!-- Ticket -->
-    <div id="ticketSection" class="card hidden">
+    <div id="ticketSection" class="card hidden hover">
       <h4>🎫 Your Ticket</h4>
+     <h5>Thankyou for booking with IndiGo</h5>
       <div class="ticket-box" id="ticketDisplay">
         <div id="pdfContent"></div>
       </div>
@@ -163,7 +222,7 @@ footer {
     </div>
 
     <!-- Bookings -->
-    <div id="bookingsSection" class="card hidden">
+    <div id="bookingsSection" class="card hidden fade-in">
       <h4>📄 Your Bookings</h4>
       <div id="bookingsList" class="ticket-box text-start"></div>
       <button class="btn btn-danger w-100 my-2" onclick="clearAllBookings()">Clear All Bookings</button>
